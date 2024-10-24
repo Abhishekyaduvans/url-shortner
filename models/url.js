@@ -12,5 +12,5 @@ const urlSchema = new mongoose.Schema({
     },
     visitHistory:[{timestamp:{type:Number}}],
 })
-const Url = mongoose.model('urls',urlSchema);
+const Url = mongoose.model('users',urlSchema);
 module.exports= Url;

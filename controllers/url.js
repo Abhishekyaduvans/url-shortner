@@ -7,7 +7,7 @@ async function handleGenerateNewShortURL(req,res){
         return res.status(400).json({error:"url required!"})
     }
     const shortID= shortid();
-    await Url.create({
+    await URL.create({
         shortId:shortID,
         redirectURL:body.url,
         timeStamp:[],
