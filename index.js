@@ -2,7 +2,8 @@ const express = require('express')
 const app = express();
 const path = require('path');
 const urlRoute= require('./routes/url')
-const {connectIt} = require('./connection') 
+const {connectIt} = require('./connection')
+const  staticRoute= require('./routes/staticRouter')
 const URL = require('./models/url')
 const PORT = 8000;
 // console.log("bnaa bhi le kucch")
@@ -14,7 +15,9 @@ connectIt('mongodb://localhost:27017/short-url')
 app.set("view engine","ejs");
 app.set("views",path.resolve('./views'))
 app.use(express.json())
- 
+app.use(express.urlencoded({extended:false}))
+
+app.use('/',staticRoute);
 
 app.use('/url',urlRoute)
 
